@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------
    Import af font
 --------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 /* ---------------------------------------------------------
    Root-variabler
@@ -9,49 +9,51 @@
    - farver + font
 --------------------------------------------------------- */
 :root {
-   --font-body: 'Poppins', sans-serif;
-   /* Farver */
-   --color-sky-top: #a6d8ff;
-   --color-sky-mid: #ffffff;
-   --color-sky-bot: #ffffff;
-   --color-night: #222833;
-   --color-sun: #ffffff;
+  --font-body: "Poppins", sans-serif;
+  /* Farver */
+  --color-sky-top: #a6d8ff;
+  --color-sky-mid: #ffffff;
+  --color-sky-bot: #ffffff;
+  --color-night: #222833;
+  --color-sun: #ffffff;
 
-   /* Billede størrelser (px) */
-   --sun-size: 100px;
-   --car-w: 200px;
+  /* Billede størrelser (px) */
+  --sun-size: 100px;
+  --car-w: 200px;
 
-   /* Start /exit offset (px) */
-   --off-car1: 200px;
-   --off-car2: 200px;
-   --off-car3: 200px;
-
+  /* Start /exit offset (px) */
+  --off-car1: 200px;
+  --off-car2: 200px;
+  --off-car3: 200px;
 }
 
 /* ---------------------------------------------------------
    Global reset
 --------------------------------------------------------- */
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
-   font-family: var(--font-body);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-body);
 }
 
 /* ---------------------------------------------------------
    Scene
 --------------------------------------------------------- */
 .scene {
-   position: relative;
-   height: 100vh;
-   overflow: hidden; /* Overflow undersøger den studerende */
-   background: linear-gradient( var(--color-sky-top), var(--color-sky-mid), var(--color-sky-bot) );
+  position: relative;
+  height: 100vh;
+  overflow: hidden; /* Overflow undersøger den studerende */
+  background: linear-gradient(
+    var(--color-sky-top),
+    var(--color-sky-mid),
+    var(--color-sky-bot)
+  );
 }
-
 
 /* Nat-tilstand */
 .scene.night {
-   background: var(--color-night);
+  background: var(--color-night);
 }
 
 /* ---------------------------------------------------------
@@ -59,61 +61,62 @@
 --------------------------------------------------------- */
 
 .sun {
-   position: absolute;
-   width: var(--sun-size);
-   height: var(--sun-size);
-   background: var(--color-sun);
-   border-radius: 50%;
-   top: 10vh;
-   left: 55%;
-   transform: translateX(-50%);
-   box-shadow: 0 0 5vw var(--color-sun);
-   transition: 0.2s;
-   cursor: pointer;
+  position: absolute;
+  width: var(--sun-size);
+  height: var(--sun-size);
+  background: var(--color-sun);
+  border-radius: 50%;
+  top: 10vh;
+  left: 55%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 5vw var(--color-sun);
+  transition: 0.2s;
+  cursor: pointer;
 }
 
 /* Nat: dæmp glød - måne-effekt */
 .scene.night .sun {
-   left: 45%;
-   box-shadow: 0 0 0 var(--color-sun);
-}
-
-.bg {
-   position: absolute;
-   inset: auto 0 0 0; /* inset egenskaben undersøger den studerende  */
-   width: 100%;
-   height: 28vh;
-   background: url(../img/bg.png);
-   background-size: 100vw auto;
-   background-repeat: repeat-x; /* Den studerende undersøger egenskaber - background-repeat */
-   animation: animationBg 17s linear infinite;
+  left: 45%;
+  box-shadow: 0 0 0 var(--color-sun);
 }
 
 /* :before undersøge den studerende selv - hvad den gør */
 .scene.night .sun:before {
-   content: ""; /* Content egenskaben undersøger den studerende selv - hvad den gør */
-   position: absolute;
-   top: -20px;
-   left: 20px;
-   width: 100%;
-   height: 100%;
-   background: var(--color-night);
-   border-radius: 50%;
+  content: ""; /* Content egenskaben undersøger den studerende selv - hvad den gør */
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  background: var(--color-night);
+  border-radius: 50%;
 }
-
-
-
-
 
 /* ---------------------------------------------------------
    Baggrund (parallax)
    - Brug vw i animationen: 0 → -100vw
    - Sæt background-size til 100vw for at matche bevægelse
 --------------------------------------------------------- */
+.bg {
+  position: absolute;
+  inset: auto 0 0 0; /* inset egenskaben undersøger den studerende  */
+  width: 100%;
+  height: 280px;
+  background: url(../img/bg.png);
+  background-size: 100vw auto;
+  background-repeat: repeat-x; /* Den studerende undersøger egenskaber - background-repeat */
+  animation: animateBg 17s linear infinite;
+}
 
-
-
-
+/* Flyt hele flisen en view-port til venstre*/
+@keyframes animateBg {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -100vw;
+  }
+}
 
 /* ---------------------------------------------------------
    Biler
@@ -121,9 +124,48 @@
    - vw/vh til placering og ALLE animationsafstande
 --------------------------------------------------------- */
 
+/*car1*/
+.car1 {
+  position: absolute;
+  bottom: 2.8vh;
+  width: var(--car-w);
+  max-width: 28vw;
+  z-index: 1;
+  left: calc(-1 * var(--off-car1));
+  animation: car1 18s linear infinite;
+}
 
+/* hoved positioner og det der aktivere animationen*/
+@keyframes car1 {
+  0% {
+    transform: translateX(0);
+  }
+  90%,
+  100% {
+    transform: translateX(calc(100vw + var(--off-car1)));
+  }
+}
 
+/* car2*/
+.car2 {
+  position: absolute;
+  bottom: 2.8vh;
+  width: var(--car-w);
+  max-width: 28vw;
+  right: calc(-1 * var(--off-car2));
+  z-index: 1;
+  animation: car2 12s linear infinite;
+}
 
+@keyframes car2 {
+  0% {
+    transform: translateX(0) rotateY(180deg);
+  }
+  90%,
+  100% {
+    transform: translateX(calc(-100vw - var(--off-car2))) rotateY(180deg);
+  }
+}
 
 /* car3: venstre → højre (spejlvendt) */
 .car3 {
@@ -138,6 +180,10 @@
 }
 
 @keyframes car3 {
-  0%   { transform: translateX(0) rotateY(180deg); }
-  100% { transform: translateX(calc(100vw + var(--off-car3))) rotateY(180deg); }
+  0% {
+    transform: translateX(0) rotateY(180deg);
+  }
+  100% {
+    transform: translateX(calc(100vw + var(--off-car3))) rotateY(180deg);
+  }
 }
