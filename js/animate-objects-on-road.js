@@ -7,6 +7,9 @@
 const getRedCar = document.getElementById("redCar");
 const getPoliceCar = document.getElementById("policeCar");
 const getBlueCar = document.getElementById("blueCar");
+//henter egne biler
+const getBusCar = document.getElementById("busCar");
+const getTruckCar = document.getElementById("truckCar");
 
 //hent sol og scene
 const sun = document.querySelector(".sun");
@@ -19,6 +22,13 @@ const soundPoliceCar = new Audio();
 soundPoliceCar.src = "../sound/police-car-sound.wav";
 const soundBlueCar = new Audio();
 soundBlueCar.src = "../sound/blue-car-sound.wav";
+
+//egne lyd objekter
+const soundBusCar = new Audio();
+soundBusCar.src = "../sound/bus-sound.wav";
+
+const soundTruckCar = new Audio();
+soundTruckCar.src = "../sound/truck-sound.wav";
 
 //Sæt lyttere på, nu afspilles den med click
 //rød bil
@@ -39,6 +49,20 @@ if (getPoliceCar) {
 if (getBlueCar) {
   getBlueCar.addEventListener("click", () => {
     soundBlueCar.play();
+  });
+}
+
+//egne biler
+//bus
+if (getBusCar) {
+  getBusCar.addEventListener("click", () => {
+    soundBusCar.play();
+  });
+}
+//truck
+if (getTruckCar) {
+  getTruckCar.addEventListener("click", () => {
+    soundTruckCar.play();
   });
 }
 
