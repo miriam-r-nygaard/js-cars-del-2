@@ -41,3 +41,12 @@ if (getBlueCar) {
     soundBlueCar.play();
   });
 }
+
+//sun og scene
+// husk to &&
+//classList.toggler skifter imellem classen .sun og night, som kommer fra CSS og tilføjer den i HTML
+if (sun && scene) {
+  sun.addEventListener("click", () => {
+    scene.classList.toggle("night");
+  });
+}
