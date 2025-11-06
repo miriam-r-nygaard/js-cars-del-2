@@ -46,6 +46,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  //slå dette op i chat, forstod det virkelig ikke
+  //du mangler dollarstegn
+  carInfo.forEach((car) => {
+    document.querySelectorAll("." + car.class).forEach((elem) => {
+      elem.addEventListener("mouseover", () => {
+        const carDetails = `
+        <strong>${car.carBrand} ${car.carModel}</strong><br>
+        Release Year: ${car.releaseYear}<br>
+        Color: ${car.color}<br>
+        Fuel: ${car.fuelType}
+        `;
+        showTooltip(carDetails);
+      });
+    });
+  });
+
   //Hent DOM elementer
   //Her er 6 dom elementer
 
