@@ -1,5 +1,33 @@
 "use strict";
 
+//her laver vi et Array
+const carInfo = [
+  {
+    className: "car1",
+    carBrand: "Ford",
+    carModel: "Mustang",
+    releaseYear: 1974,
+    color: "red",
+    fuelType: "Diesel",
+  },
+  {
+    className: "car2",
+    carBrand: "Volvo",
+    carModel: "242 Series",
+    releaseYear: 1982,
+    color: "white",
+    fuelType: "Benzin",
+  },
+  {
+    className: "car3",
+    carBrand: "Volkswagen",
+    carModel: "Passat",
+    releaseYear: 1979,
+    color: "blue",
+    fuelType: "Diesel",
+  },
+];
+
 //Hent DOM elementer
 //Her er 6 dom elementer
 
