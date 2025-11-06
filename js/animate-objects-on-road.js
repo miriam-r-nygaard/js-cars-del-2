@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //slå dette op i chat, forstod det virkelig ikke
   //du mangler dollarstegn
   carInfo.forEach((car) => {
-    document.querySelectorAll("." + car.class).forEach((elem) => {
+    document.querySelectorAll("." + car.className).forEach((elem) => {
       elem.addEventListener("mouseover", () => {
         const carDetails = `
         <strong>${car.carBrand} ${car.carModel}</strong><br>
