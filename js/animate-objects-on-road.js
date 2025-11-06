@@ -28,7 +28,24 @@ const carInfo = [
   },
 ];
 
+//venter med at kører JS indtil HTML er loadet helt
 document.addEventListener("DOMContentLoaded", () => {
+  //finder tooltip id og gemmer det i en variabel
+  const tooltip = document.getElementById("tooltip");
+  //funktion der viser tooltip med biloplysninger
+  //parametere html = den tekst indeholdende html-tags som vi vil vise i tooltip'en
+  function showTooltip(html) {
+    //Indsætter teksten i tooltip'en
+    if (tooltip) {
+      tooltip.innerHTML = html;
+      //gør tooltip'en synlig med css klassen
+      tooltip.classList.add("is-visible");
+      setTimeout(function () {
+        tooltip.classList.remove("is-visible");
+      }, 8000);
+    }
+  }
+
   //Hent DOM elementer
   //Her er 6 dom elementer
 
