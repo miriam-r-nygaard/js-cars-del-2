@@ -1,5 +1,5 @@
 "use strict";
-
+//opbygger vores js struktur med Array som indeholder js objekter
 //her laver vi et Array
 const carInfo = [
   {
@@ -28,77 +28,79 @@ const carInfo = [
   },
 ];
 
-//Hent DOM elementer
-//Her er 6 dom elementer
+document.addEventListener("DOMContentLoaded", () => {
+  //Hent DOM elementer
+  //Her er 6 dom elementer
 
-//henter bilerne
-const getRedCar = document.getElementById("redCar");
-const getPoliceCar = document.getElementById("policeCar");
-const getBlueCar = document.getElementById("blueCar");
-//henter egne biler
-const getBusCar = document.getElementById("busCar");
-const getTruckCar = document.getElementById("truckCar");
+  //henter bilerne
+  const getRedCar = document.getElementById("redCar");
+  const getPoliceCar = document.getElementById("policeCar");
+  const getBlueCar = document.getElementById("blueCar");
+  //henter egne biler
+  const getBusCar = document.getElementById("busCar");
+  const getTruckCar = document.getElementById("truckCar");
 
-//hent sol og scene
-const sun = document.querySelector(".sun");
-const scene = document.querySelector(".scene");
+  //hent sol og scene
+  const sun = document.querySelector(".sun");
+  const scene = document.querySelector(".scene");
 
-//opretter lydobjekter
-const soundRedCar = new Audio();
-soundRedCar.src = "../sound/red-car-horn.wav";
-const soundPoliceCar = new Audio();
-soundPoliceCar.src = "../sound/police-car-sound.wav";
-const soundBlueCar = new Audio();
-soundBlueCar.src = "../sound/blue-car-sound.wav";
+  //opretter lydobjekter
+  const soundRedCar = new Audio();
+  soundRedCar.src = "../sound/red-car-horn.wav";
+  const soundPoliceCar = new Audio();
+  soundPoliceCar.src = "../sound/police-car-sound.wav";
+  const soundBlueCar = new Audio();
+  soundBlueCar.src = "../sound/blue-car-sound.wav";
 
-//egne lyd objekter
-const soundBusCar = new Audio();
-soundBusCar.src = "../sound/bus-sound.wav";
+  //egne lyd objekter
+  const soundBusCar = new Audio();
+  soundBusCar.src = "../sound/bus-sound.wav";
 
-const soundTruckCar = new Audio();
-soundTruckCar.src = "../sound/truck-sound.wav";
+  const soundTruckCar = new Audio();
+  soundTruckCar.src = "../sound/truck-sound.wav";
 
-//Sæt lyttere på, nu afspilles den med click
-//rød bil
-if (getRedCar) {
-  getRedCar.addEventListener("click", () => {
-    soundRedCar.play();
-  });
-}
+  //Sæt lyttere på, nu afspilles den med click
+  //rød bil
+  if (getRedCar) {
+    getRedCar.addEventListener("click", () => {
+      soundRedCar.play();
+    });
+  }
 
-//politi bil
-if (getPoliceCar) {
-  getPoliceCar.addEventListener("click", () => {
-    soundPoliceCar.play();
-  });
-}
+  //politi bil
+  if (getPoliceCar) {
+    getPoliceCar.addEventListener("click", () => {
+      soundPoliceCar.play();
+    });
+  }
 
-//blå bil
-if (getBlueCar) {
-  getBlueCar.addEventListener("click", () => {
-    soundBlueCar.play();
-  });
-}
+  //blå bil
+  if (getBlueCar) {
+    getBlueCar.addEventListener("click", () => {
+      soundBlueCar.play();
+    });
+  }
 
-//egne biler
-//bus
-if (getBusCar) {
-  getBusCar.addEventListener("click", () => {
-    soundBusCar.play();
-  });
-}
-//truck
-if (getTruckCar) {
-  getTruckCar.addEventListener("click", () => {
-    soundTruckCar.play();
-  });
-}
+  //egne biler
+  //bus
+  if (getBusCar) {
+    getBusCar.addEventListener("click", () => {
+      soundBusCar.play();
+    });
+  }
+  //truck
+  if (getTruckCar) {
+    getTruckCar.addEventListener("click", () => {
+      soundTruckCar.play();
+    });
+  }
 
-//sun og scene
-// husk to &&
-//classList.toggler skifter imellem classen .sun og night, som kommer fra CSS og tilføjer den i HTML
-if (sun && scene) {
-  sun.addEventListener("click", () => {
-    scene.classList.toggle("night");
-  });
-}
+  //sun og scene
+  // husk to &&
+  //classList.toggler skifter imellem classen .sun og night, som kommer fra CSS og tilføjer den i HTML
+  if (sun && scene) {
+    sun.addEventListener("click", () => {
+      scene.classList.toggle("night");
+    });
+  }
+});
